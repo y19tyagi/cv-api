@@ -4,4 +4,4 @@ services:
     env: python
     plan: free
     buildCommand: "pip install -r requirements.txt"
-    startCommand: "python Aim4_api.py"
+    startCommand: "gunicorn -w 1 -b 0.0.0.0:$PORT Aim4_api:app"
